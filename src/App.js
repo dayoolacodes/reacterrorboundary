@@ -34,12 +34,18 @@ Toggle=()=>{
   this.setState({showDivToggle:!(this.state.showDivToggle)})
 }
 
+onChanger =(e)=>{
+  e.preventDefault();
+  console.log(e.target.value)
+  // this.setState({})
+}
+
   render() { 
     let persons = null
     if (this.state.showDivToggle){
       persons = 
       this.state.person.map( (n, index) => (
-        <Persons key={n.id} click={()=>this.deleteperson(index)} name= {n.name}/>
+        <Persons key={n.id} onchanger={this.onChanger} click={()=>this.deleteperson(index)} name= {n.name}/>
       ))
     }
 
