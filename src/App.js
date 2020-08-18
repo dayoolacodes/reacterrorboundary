@@ -1,26 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import Persons from './components/Persons'
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
+class App extends Component {
+  state = { 
+    person :[
+      {
+        id: 1,
+        name: "Dayo"
+      },
+      {
+        id: 2,
+        name: "Yele"
+      },
+      {
+        id: 3,
+        name: "Ayoola"
+      }
+
+    ]
+   }
+
+  deleteperson = (id) =>{
+    console.log("clicked")
+    const person = this.state.person.splice(id);
+    this.setState({person: person})
+  }
+  
+
+  render() { 
+    return ( 
+    <div className="App">
+      <h1>Ni Hao</h1>
+
+      {this.state.person.map( n => (
+        <Persons key={n.id} click={this.deleteperson} name= {n.name}/>
+      ))}
+
+    </div>
+
+     );
+  }
+}
+ 
 export default App;
+
