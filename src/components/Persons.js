@@ -6,14 +6,16 @@ const style = {
     border: '1px solid #cecece',
     boxShadow: "0 2px 3px #ccc",
     padding: "16px",
-    textAlign: "center"
+    textAlign: "center",
+    borderRadius: "10px",
+    cursor: "pointer"
   }
 
 const Persons = (props) => {
     return ( 
         <div style={style} >
-        <h3 onClick={props.click}>This is a component by {props.name} </h3>
-        <input name="title" placeholder="type name..." value={props.name} onChange={props.onchanger} />
+        <h3 onClick={props.deleteClick}>This is a component by {props.name} </h3>
+        <input type="text" placeholder="type name..."  onChange={props.onchanger} />
         </div>
      );
 }
