@@ -12,10 +12,15 @@ const style = {
   }
 
 const Persons = (props) => {
+  let rand = Math.random();
+  console.log(rand)
+        if (rand > 0.7){
+          throw new Error("something broke!!!");
+        }
     return ( 
         <div style={style} >
         <h3 onClick={props.deleteClick}>This is a component by {props.name} </h3>
-        <input type="text" placeholder="type name..."  onChange={props.onchanger} />
+        <input type="text" style={{textAlign:"center", borderRadius:"20px", outline:"none"}} placeholder="type name..."  onChange={props.onchanger} />
         </div>
      );
 }

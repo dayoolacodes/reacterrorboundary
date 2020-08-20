@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Persons from './components/Persons'
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
 import Radium from "radium"
 import './App.css';
 
@@ -12,7 +13,7 @@ class App extends Component {
         name: "Dayo"
       },
       {
-        id: "ewuke",
+        id: "sdjke",
         name: "Yele"
       },
       {
@@ -41,18 +42,17 @@ onChanger =(e, id)=>{
   const personId = this.state.person.findIndex(n =>{
     return id===n.id
   })
-  console.log(personId)
+  // console.log(personId)
   const person = {...this.state.person[personId]}
-console.log(person)
+// console.log(person)
   person.name =  e.target.value;
-    console.log(person.name)
+    // console.log(person.name)
     const perss = [...this.state.person];
     perss[personId] = person
     this.setState({person:perss})
 
   }
  
-
   render() { 
     const style ={
       backgroundColor: "white",
@@ -68,11 +68,14 @@ console.log(person)
       }
     }
     let persons = null
+    
     if (this.state.showDivToggle){
     persons = 
       this.state.person.map((n, index) => {
       return (
-      <Persons key={n.id} onchanger={(event) => this.onChanger(event, n.id)} deleteClick={()=>this.deleteperson(index)} name= {n.name}/>
+      <ErrorBoundary key={n.id}>
+      <Persons  onchanger={(event) => this.onChanger(event, n.id)} deleteClick={()=>this.deleteperson(index)} name= {n.name}/>
+      </ErrorBoundary>
       )
       })
       style.border= "1px solid salmon"
