@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Persons from './components/Persons'
+import Radium from "radium"
 import './App.css';
 
 
@@ -35,7 +36,7 @@ Toggle=()=>{
 }
 
 onChanger =(e, id)=>{
-  // e.preventDefault();
+  
   // console.log(e.target.value)
   const personId = this.state.person.findIndex(n =>{
     return id===n.id
@@ -45,34 +46,43 @@ onChanger =(e, id)=>{
 console.log(person)
   person.name =  e.target.value;
     console.log(person.name)
-    const perss = [...this.state.person.slice];
+    const perss = [...this.state.person];
     perss[personId] = person
     this.setState({person:perss})
 
   }
+ 
 
   render() { 
+    const style ={
+      backgroundColor: "white",
+      border: "1px solid green",
+      borderRadius: "5px",
+      padding: "8px",
+      cursor: "pointer",
+      boxShadow: "0 4px 3px #cecece",
+      outline: "none",
+      ':hover' : {
+        backgroundColor: "green",
+        color: "white"
+      }
+    }
     let persons = null
     if (this.state.showDivToggle){
     persons = 
       this.state.person.map((n, index) => {
       return (
-      
       <Persons key={n.id} onchanger={(event) => this.onChanger(event, n.id)} deleteClick={()=>this.deleteperson(index)} name= {n.name}/>
-      
       )
       })
-      
+      style.border= "1px solid salmon"
+      style[":hover"] = {
+        backgroundColor: "salmon",
+        color: "white"
+
+      } 
     }
 
-    const style ={
-      background: "white",
-      border: "1px solid #ccc",
-      borderRadius: "5px",
-      padding: "8px",
-      cursor: "pointer",
-      boxShadow: "0 2px 3px #cecece"
-    }
 
 
     return ( 
@@ -86,5 +96,5 @@ console.log(person)
   }
 }
  
-export default App;
+export default Radium(App);
 
