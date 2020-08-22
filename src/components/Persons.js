@@ -12,11 +12,11 @@ const style = {
   }
 
 const Persons = (props) => {
-  let rand = Math.random();
-  console.log(rand)
-        if (rand > 0.7){
-          throw new Error("something broke!!!");
-        }
+  // let rand = Math.random();
+  // console.log(rand)
+  //       if (rand > 0.7){
+  //         throw new Error("something broke!!!");
+  //       }
     return ( 
         <div style={style} >
         <h3 onClick={props.deleteClick}>This is a component by {props.name} </h3>
