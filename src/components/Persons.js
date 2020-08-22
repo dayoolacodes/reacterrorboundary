@@ -6,7 +6,7 @@ const style = {
     border: '1px solid #cecece',
     boxShadow: "0 2px 3px #ccc",
     padding: "16px",
-    textAlign: "center",
+    textAlign: "center", 
     borderRadius: "10px",
     cursor: "pointer"
   }
