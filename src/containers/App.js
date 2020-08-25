@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Persons from './components/Persons'
-import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
+import Persons from '../components/Persons/Persons'
+import Cockpit from '../components/Cockpit/Cockpit'
 import Radium from "radium"
 import './App.css';
 
@@ -34,6 +34,7 @@ class App extends Component {
  
 Toggle=()=>{
   this.setState({showDivToggle:!(this.state.showDivToggle)})
+  // console.log("clicked")
 }
 
 onChanger =(e, id)=>{
@@ -54,44 +55,21 @@ onChanger =(e, id)=>{
   }
  
   render() { 
-    const style ={
-      backgroundColor: "white",
-      border: "1px solid green",
-      borderRadius: "5px",
-      padding: "8px",
-      cursor: "pointer",
-      boxShadow: "0 4px 3px #cecece",
-      outline: "none",
-      ':hover' : {
-        backgroundColor: "green",
-        color: "white"
-      }
-    }
+ 
     let persons = null
     
     if (this.state.showDivToggle){
     persons = 
-      this.state.person.map((n, index) => {
-      return (
-      <ErrorBoundary key={n.id}>
-      <Persons  onchanger={(event) => this.onChanger(event, n.id)} deleteClick={()=>this.deleteperson(index)} name= {n.name}/>
-      </ErrorBoundary>
-      )
-      })
-      style.border= "1px solid salmon"
-      style[":hover"] = {
-        backgroundColor: "salmon",
-        color: "white"
-
-      } 
-    }
-
-
+    <Persons 
+    onChanger={this.onChanger} 
+    deleteperson={this.deleteperson} 
+    person ={this.state.person}/>
+    } 
+  
 
     return ( 
     <div className="App">
-      <h1>Nĭ Hăo</h1>
-      <button style={style} onClick={this.Toggle}>Toggle_Me</button>
+      <Cockpit Toggle={this.Toggle}/>
       {persons}
     </div>
 
