@@ -1,5 +1,6 @@
 import React from 'react';
 import Radium from 'radium'
+import Aux from '../../higher_order_component_hoc/UnreserveAux'
 
 const cockpit = (props) => {
     const style ={
@@ -21,10 +22,11 @@ const cockpit = (props) => {
         color: "white"
     }
     return ( 
-    <div>
+    <Aux>
         <h1>Nĭ Hăo</h1>
-        <button style={style} onClick={props.Toggle}>Toggle_Me</button>
-    </div>
+        <button style={style} onClick={props.Toggle}>Toggle_Me</button>{" "}
+    <button onClick={props.login}>{props.loginText}</button>
+    </Aux>
   );
 }
  

@@ -1,6 +1,6 @@
 import React from 'react';
 import Person from "./Person";
-import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
+import ErrorBoundary from '../../error_boundary/ErrorBoundary';
 
 // let rand = Math.random();
  // console.log(rand)

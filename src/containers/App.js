@@ -5,6 +5,7 @@ import Radium from "radium"
 import './App.css';
 
 
+export const Auth = React.createContext(false)
 class App extends Component {
   state = { 
     person :[
@@ -21,7 +22,8 @@ class App extends Component {
         name: "Ayoola"
       }
     ],
-    showDivToggle: false
+    showDivToggle: false,
+    authenticated: false
    }
    
    deleteperson = (idNum) =>{
@@ -53,6 +55,10 @@ onChanger =(e, id)=>{
     this.setState({person:perss})
 
   }
+
+  loginHandler =()=>{
+    this.setState({authenticated:!(this.state.authenticated)})
+  }
  
   render() { 
  
@@ -69,8 +75,13 @@ onChanger =(e, id)=>{
 
     return ( 
     <div className="App">
-      <Cockpit Toggle={this.Toggle}/>
+      <Cockpit Toggle={this.Toggle}
+      login={this.loginHandler}
+      loginText={this.state.authenticated? "Logout" : "Login"}
+      />
+      <Auth.Provider value={this.state.authenticated}>
       {persons}
+      </Auth.Provider>
     </div>
 
      );
