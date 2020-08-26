@@ -29,7 +29,7 @@ const cockpit = (props) => {
     <Aux>
         <h1>Nĭ Hăo</h1>
         <button style={style} onClick={props.Toggle}>Toggle_Me</button>{" "}
-    <button onClick={props.login}>{props.loginText}</button>
+        <button onClick={props.login}>{props.loginText}</button>
     </Aux>
   );
 }
