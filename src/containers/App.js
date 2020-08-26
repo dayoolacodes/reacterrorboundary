@@ -76,6 +76,7 @@ onChanger =(e, id)=>{
     return ( 
     <div className="App">
       <Cockpit Toggle={this.Toggle}
+      showDivToggle = {this.state.showDivToggle}
       login={this.loginHandler}
       loginText={this.state.authenticated? "Logout" : "Login"}
       />
