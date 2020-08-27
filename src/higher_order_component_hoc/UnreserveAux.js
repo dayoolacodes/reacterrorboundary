@@ -1,4 +1,6 @@
+// name of the file Aux.js, is reserved for windows, had to change to UnreservedAux
 import React from 'react';
+
 
 const aux = (props) => {
     return ( 
