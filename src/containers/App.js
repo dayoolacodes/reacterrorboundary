@@ -11,15 +11,15 @@ class App extends Component {
     person :[
       {
         id: "hfualsdj",
-        name: "Dayo"
+        name: "Jeff"
       },
       {
         id: "sdjke",
-        name: "Yele"
+        name: "Mark"
       },
       {
         id: "shdska",
-        name: "Ayoola"
+        name: "Bill"
       }
     ],
     showDivToggle: false,
